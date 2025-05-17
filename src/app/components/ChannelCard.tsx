@@ -2,7 +2,6 @@
 import React from 'react'
 import { addChannelController } from '../controller/channelController';
 import {channel} from '../model/model';
-import Image from 'next/image';
 
 
 interface ChannelCardProps {
@@ -25,7 +24,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel,userId}) => {
 
   return (
     <div className='channel-card'>
-        <Image src={channel.photoUrl} alt="channel-user" />
+        <img src={channel.photoUrl} alt="channel-user" />
         <div className='channel-title'>
           <a href={`${channelUrl}${channel.channelId}`} target='_blank' rel='noopener noreferrer'>
         {channel.channelTitle}
