@@ -1,4 +1,8 @@
 "use server";
+import {defineConfig} from 'vitest/config';
+import dotenv from 'dotenv';
+
+dotenv.config({path: '.env.local'});
 type channelSearch={
     channelId: string,
     photoUrl: string,
@@ -47,14 +51,16 @@ export async function fetchChannel(query: string): Promise<any> {
          }
        }
   
-         youtubeData.forEach((item:any, index: number)=>{
-           console.log(`Index: ${index+1}`)
-           console.log(item.channelId);
-           console.log(item.photoUrl);
-           console.log(item.channelTitle);
-           console.log(item.subscriberCount);
-           console.log("===============================");
-         })
+        //  youtubeData.forEach((item:any, index: number)=>{
+        //    console.log(`Index: ${index+1}`)
+        //    console.log(item.channelId);
+        //    console.log(item.photoUrl);
+        //    console.log(item.channelTitle);
+        //    console.log(item.subscriberCount);
+        //    console.log("===============================");
+        //  })
+
+        console.log("youtube Data: ",youtubeData);
   
          return youtubeData;
         // Uncomment and define setChannelList if needed, or remove this line if unnecessary

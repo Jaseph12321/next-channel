@@ -1,1 +1,0 @@
-ALTER TABLE "channel" ADD COLUMN "photoUrl" varchar(255);

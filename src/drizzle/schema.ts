@@ -21,7 +21,7 @@ export const ChannelTable = pgTable(
         title: varchar("title",{length: 255}).notNull(),
         subscriberCount: integer("subscriberCount"),
         photoUrl: varchar("photoUrl",{length: 255}),
-        userId:uuid("userId").notNull().references(()=>UserTable.id),
+        userId:varchar("userId",{length: 10}).notNull().references(()=>UserTable.id),
         createdTime:timestamp("createdTime").defaultNow().notNull(),
         updatedTime:timestamp("updatedTime").defaultNow().notNull()
 

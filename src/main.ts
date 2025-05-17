@@ -2,15 +2,13 @@
 // import dotenv from 'dotenv';
 // import { db } from './drizzle/db';
 // import { UserTable } from './drizzle/schema';
+// import { fetchChannel } from './app/api/fetchChannel';
 // dotenv.config({path: '.env.local'});
 
 // async function main(){
-//     await db.insert(UserTable).values({
-//         id:"Jasepg321",
-//         name: 'Joseph',
-//         age: 25,
-//         email: 'joseph@example.com'
-//     })
+//     const response = fetchChannel("Jennie");
+
+//     console.log(response);
 // }
 
 // main()

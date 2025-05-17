@@ -1,5 +1,5 @@
 {
-  "id": "782d7345-ad93-4f40-b174-3de82716b18f",
+  "id": "aba18384-4051-406e-ac42-f1582e19f214",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -32,9 +32,15 @@
           "primaryKey": false,
           "notNull": false
         },
+        "photoUrl": {
+          "name": "photoUrl",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
         "userId": {
           "name": "userId",
-          "type": "uuid",
+          "type": "varchar(10)",
           "primaryKey": false,
           "notNull": true
         },
@@ -89,10 +95,9 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "varchar(10)",
           "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
+          "notNull": true
         },
         "name": {
           "name": "name",
@@ -127,23 +132,7 @@
           "default": "now()"
         }
       },
-      "indexes": {
-        "emailIndex": {
-          "name": "emailIndex",
-          "columns": [
-            {
-              "expression": "email",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": true,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        }
-      },
+      "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
@@ -152,14 +141,6 @@
           "nullsNotDistinct": false,
           "columns": [
             "email"
-          ]
-        },
-        "uniqueNameAndAge": {
-          "name": "uniqueNameAndAge",
-          "nullsNotDistinct": false,
-          "columns": [
-            "name",
-            "age"
           ]
         }
       },
