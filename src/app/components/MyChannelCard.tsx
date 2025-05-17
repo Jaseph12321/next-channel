@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { deleteChannelController } from '../controller/channelController';
-import { channel, myChannel } from '../model/model';
+import { myChannel } from '../model/model';
 
 
 interface ChannelCardProps {
