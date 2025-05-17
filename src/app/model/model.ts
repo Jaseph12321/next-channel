@@ -23,6 +23,7 @@ export type userData = {
  }
 
  export type createUserData = {
+  id: string,
   name: string,
   age: number,
   email: string
