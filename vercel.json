@@ -1,6 +1,5 @@
 {
-  "version": 2,
-  "cron": [
+  "crons": [
     {
       "path": "/api/cron-task",
       "schedule": "*/10 * * * *"
