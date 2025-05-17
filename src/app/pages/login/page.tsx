@@ -39,8 +39,8 @@ const LoginPage: React.FC = () => {
             setMessage(`Welcome, ${username}!`);
             // Optionally redirect to another page
             router.push('/');
-            } catch (error) {
-                
+            } catch (e) {
+                console.log(e);
             }
         } else {
             setMessage('Please enter your username.');
@@ -70,7 +70,7 @@ const LoginPage: React.FC = () => {
             </form>
             {message && <p style={{ marginTop: 16 }}>{message}</p>}
             <div>
-                <p>don't know what's your account? Click <Link href="/pages/register">here</Link> to register</p>
+                <p>don't&apos;know&apos;what's&apos;your&apos;account?&apos;Click&apos;<Link href="/pages/register">here</Link>&apos;to&apos;register</p>
             </div>
         </div>
         </>

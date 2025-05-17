@@ -1,10 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import '../../profile/profile.scss';
-import { useRouter } from 'next/navigation';
-import Navbar from '../../../components/Navbar';
 import { getUser } from '../../../controller/userController';
-import {userData} from '../../../model/model';
+import { userData } from '../../../model/model';
+import '../../profile/profile.scss';
 
 
  interface ProfilePageProps{

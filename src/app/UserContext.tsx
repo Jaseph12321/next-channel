@@ -19,7 +19,8 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if(stored){
         try {
             setUser(JSON.parse(stored));
-        } catch (error) {
+        } catch (e) {
+            console.log(e);
             localStorage.removeItem('user');
         }
     }

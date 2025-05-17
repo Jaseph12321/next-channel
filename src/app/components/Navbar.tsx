@@ -1,9 +1,8 @@
 'use client';
-import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Search from './Search';
-import { useUser } from '../UserContext';
 import { useRouter } from 'next/navigation';
+import React from 'react';
+import { useUser } from '../UserContext';
 
 
 

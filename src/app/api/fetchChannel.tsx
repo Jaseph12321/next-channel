@@ -1,23 +1,19 @@
 "use server";
 import dotenv from 'dotenv';
+import { channel } from '../model/model';
 
 dotenv.config({path: '.env.local'});
-type channelSearch={
-    channelId: string,
-    photoUrl: string,
-    channelTitle: string,
-    subscriberCount: number
-}
+
 
 const apiKey = process.env.YOUTUBE_API_KEY;
 const searchUrl = process.env.YOUTUBE_SEARCH_URL;
 const channelUrl = process.env.YOUTUBE_CHANNEL_URL;
 
-export async function fetchChannel(query: string): Promise<any> {
+export async function fetchChannel(query: string): Promise<channel[]> {
     try{
         console.log("Query: "+query);
         console.log({ apiKey, searchUrl, channelUrl });
-        const youtubeData: channelSearch[] = [];
+        const youtubeData: channel[] = [];
         const response = await fetch(
            `${searchUrl}?key=${apiKey}&part=snippet&maxResults=20&type=channel&q=${encodeURIComponent(query)}`
          );
@@ -30,7 +26,7 @@ export async function fetchChannel(query: string): Promise<any> {
   
          const firstResult = data.items;
          if(firstResult){
-           let d: channelSearch;
+           let d: channel;
            for (const item of firstResult) {
            
            const channelResponse = await fetch(
@@ -43,7 +39,8 @@ export async function fetchChannel(query: string): Promise<any> {
                channelId: channelData.items[0].id,
                photoUrl: channelData.items[0].snippet.thumbnails.default.url,
                channelTitle: channelData.items[0].snippet.title,
-               subscriberCount: channelData.items[0].statistics.subscriberCount
+               userId: channelData.items[0].snippet?.customUrl || channelData.items[0].id || "", // fallback if customUrl is missing
+               subscriberCount: Number(channelData.items[0].statistics.subscriberCount)
              };
            youtubeData.push(d);          
           }
@@ -66,6 +63,7 @@ export async function fetchChannel(query: string): Promise<any> {
         // setChannelList(youtubeData || []);
        }catch(err){
        console.error("Fetch error:",err);
+       return [];
     }
 }
 

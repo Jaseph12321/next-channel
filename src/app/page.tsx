@@ -5,15 +5,11 @@ import Search from "./components/Search";
 import { getChannelController } from "./controller/channelController";
 import type { channel } from "./model/model";
 
-
-
-type channelSearch = channel;
-
 const Home = () => {
       
       
-      const [searchResult, setSearchResult] = useState<string>('');
-      const [channelList,setChannelList] = useState<channelSearch[]>([]);
+      const searchResult : string = "";
+      const [channelList,setChannelList] = useState<channel[]>([]);
       const [userId,setUserId] = useState<string>('');
 
       useEffect(()=>{
@@ -26,6 +22,7 @@ const Home = () => {
             setUserId(parsedUser.id || '');
             console.log('inside the userid', userId);
           } catch (e) {
+            console.log(e);
             setUserId('');
           }
         } else {
@@ -37,7 +34,13 @@ const Home = () => {
       // youtube channel fetch
       const handleSearch = async(query: string = '')=>{
         console.log("start fetching channel");
-        setChannelList(await getChannelController(query)||[]);
+        const channels = await getChannelController(query) || [];
+        // Ensure each channel has a userId property
+        const channelsWithUserId = channels.map((ch: any) => ({
+          ...ch,
+          userId: ch.userId ?? userId
+        }));
+        setChannelList(channelsWithUserId);
       }
       
       return(

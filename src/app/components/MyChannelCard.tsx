@@ -1,7 +1,8 @@
 'use client';
-import React from 'react'
-import { addChannelController, deleteChannelController } from '../controller/channelController';
-import {channel} from '../model/model';
+import React from 'react';
+import { deleteChannelController } from '../controller/channelController';
+import { channel } from '../model/model';
+import Image from 'next/image';
 
 
 interface ChannelCardProps {
@@ -13,14 +14,11 @@ const channelUrl = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_URL;
 let userId: string | null = null;
 if (typeof window !== 'undefined') {
   userId = localStorage.getItem('user');
+  console.log(userId);
 }
 
 const MyChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
   
-
-  const handleUpdateChannel = ()=>{
-   
-  }
 
   const handleDeleteChannel = ()=>{
        deleteChannelController(channel.channelId,channel.userId);
@@ -29,7 +27,7 @@ const MyChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
   
   return (
     <div className='channel-card'>
-        <img src={channel.photoUrl} alt="channel-user" />
+        <Image src={channel.photoUrl} alt="channel-user" />
         <div className='channel-title'>
           <a href={`${channelUrl}${channel.channelId}`} target='_blank' rel='noopener noreferrer'>
         {channel.channelTitle}

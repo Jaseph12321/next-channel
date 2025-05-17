@@ -1,6 +1,6 @@
 import { db } from "@/src/drizzle/db";
-import { ChannelTable, UserTable } from "@/src/drizzle/schema";
-import { and, eq, sql } from "drizzle-orm";
+import { UserTable } from "@/src/drizzle/schema";
+import { eq, sql } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest){
@@ -27,7 +27,6 @@ export async function GET(req: NextRequest){
     console.log('into the database');
     const {searchParams} = new URL(req.url);
     const id = searchParams.get('id');
-    const name = searchParams.get('name');
     let response = new NextResponse;
 
     if(!id) 
@@ -77,8 +76,8 @@ export async function PUT(req: NextRequest){
 }
 
 export async function DELETE(req: NextRequest){
-    const {searchParams, pathname} = new URL(req.url);
-    let response: any;
+    const {searchParams} = new URL(req.url);
+    let response = new NextResponse();
 
     try {
         if(searchParams.has('id')){

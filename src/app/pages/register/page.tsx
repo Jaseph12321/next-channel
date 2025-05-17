@@ -1,11 +1,9 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import '../register/register.scss';
 import { useRouter } from 'next/navigation';
-import Navbar from '../../components/Navbar';
+import React, { useState } from 'react';
 import { createUser } from '../../controller/userController';
-import {createUserData, userData} from '../../model/model';
-import router from 'next/router';
+import { createUserData } from '../../model/model';
+import '../register/register.scss';
 
 
 
@@ -33,8 +31,9 @@ const RegisterPage: React.FC = ({}) => {
         try {
             createUser(newUser);
             router.push('/'); 
-        } catch (error) {
-            throw new Error();
+        } catch (e) {
+            console.log(e);
+            throw new Error(String(e));
         }        
     };
 

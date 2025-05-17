@@ -1,6 +1,8 @@
 import { fetchChannel } from "../api/fetchChannel";
 import {channel} from "../model/model";
 
+
+
 export async function addChannelController(channel: channel): Promise<string> {
   console.log("userid",channel.userId);
   await fetch('/api/channel', {
@@ -13,7 +15,7 @@ export async function addChannelController(channel: channel): Promise<string> {
   return "OK";
 }
 
-export async function getChannelController(query: string): Promise<any>{
+export async function getChannelController(query: string): Promise<channel[]>{
       return fetchChannel(query);
 }
 

@@ -1,13 +1,4 @@
-
-
-
-
-// Make sure to import or define the Channel type above this function
-// import { Channel } from '../path/to/types'; 
-
-import { UserInfo } from "node:os";
 import { createUserData, userData, userParam } from "../model/model";
-import { POST } from "../api/channel/route";
 
 
 

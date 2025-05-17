@@ -8,7 +8,7 @@ type SearchProps= {
 }
 
 
-const Search: React.FC<SearchProps> = ({searchResult,placeholder='search channel....',onSearch}) =>{
+const Search: React.FC<SearchProps> = ({placeholder='search channel....',onSearch}) =>{
    const[query,setQuery]= useState('');
    
    const handleKeyPress = (e:React.KeyboardEvent<HTMLInputElement>)=>{
