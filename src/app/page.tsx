@@ -1,9 +1,7 @@
 "use client";
-import Navbar from "./components/Navbar";
-import Search from "./components/Search";
 import { useEffect, useState } from "react";
 import ChannelCard from "./components/ChannelCard";
-import { fetchChannel } from "./api/fetchChannel";
+import Search from "./components/Search";
 import { getChannelController } from "./controller/channelController";
 import type { channel } from "./model/model";
 

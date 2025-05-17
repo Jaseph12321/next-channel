@@ -1,9 +1,8 @@
 'use client'
-import React from 'react'
-import Navbar from '../../components/Navbar'
-import '../../style/globals.scss'
-import { getUser } from '../../controller/userController';
+import React from 'react';
 import MyChannelCard from '../../components/MyChannelCard';
+import { getUser } from '../../controller/userController';
+import '../../style/globals.scss';
 
 const myList = () => {
 

@@ -1,8 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/src/drizzle/db';
-import { ChannelTable, UserTable } from '@/src/drizzle/schema';
+import { ChannelTable } from '@/src/drizzle/schema';
 import { sql } from 'drizzle-orm';
-import { channel, Channel } from 'diagnostics_channel';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
