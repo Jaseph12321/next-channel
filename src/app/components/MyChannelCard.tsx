@@ -13,14 +13,11 @@ const channelUrl = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_URL;
 let userId: string | null = null;
 if (typeof window !== 'undefined') {
   userId = localStorage.getItem('user');
+  console.log(userId);
 }
 
 const MyChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
-  
 
-  const handleUpdateChannel = ()=>{
-   
-  }
 
   const handleDeleteChannel = ()=>{
        deleteChannelController(channel.channelId,channel.userId);
