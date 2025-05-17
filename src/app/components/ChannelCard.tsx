@@ -14,11 +14,13 @@ interface ChannelCardProps {
 const channelUrl = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_URL;
 
 const ChannelCard: React.FC<ChannelCardProps> = ({ channel,userId}) => {
+
+
+   console.log('inside the channel card', channel);
   
 
   const handleAddChannel = ()=>{
    channel.userId = userId; 
-   console.log('inside the channel card', channel.userId);
    addChannelController(channel);
   }
 

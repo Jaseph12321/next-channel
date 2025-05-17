@@ -6,6 +6,14 @@ export type channel = {
   subscriberCount: number
 };
 
+export type myChannel = {
+  channelId: string,
+  photoUrl: string,
+  title: string,
+  userId: string,
+  subscriberCount: number
+};
+
 //===============================================
 // user models
 
