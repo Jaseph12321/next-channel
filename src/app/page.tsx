@@ -18,6 +18,10 @@ const Home = () => {
       const [userId,setUserId] = useState<string>('');
 
       useEffect(()=>{
+        fetch('/api/cron-init');
+      }, []);
+
+      useEffect(()=>{
         const user = localStorage.getItem('user');
         console.log('the user', user);
         if (user) {
