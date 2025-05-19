@@ -10,10 +10,10 @@ interface ChannelCardProps {
 
 const channelUrl = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_URL;
 
-let userId: string | null = null;
-if (typeof window !== 'undefined') {
-  userId = localStorage.getItem('user');
-}
+// let userId: string | null = null;
+// if (typeof window !== 'undefined') {
+//   userId = localStorage.getItem('user');
+// }
 
 const MyChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
   
