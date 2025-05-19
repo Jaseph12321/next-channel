@@ -9,7 +9,7 @@ export async function POST(req: NextRequest){
 
   try {
     await db.insert(UserTable).values({
-    id: "id",     
+    id: body.id,     
     name: body.name,
     age: body.age,
     email: body.email
