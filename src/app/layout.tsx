@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./style/globals.scss";
+import "./globals.scss";
 import Navbar from "./components/Navbar";
 import { UserProvider } from "./UserContext";
 
