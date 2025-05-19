@@ -18,7 +18,6 @@ const ProfilePage: React.FC<ProfilePageProps> = ({params}) => {
        getUser({id: params.id, name:''}).then(setUser);
     },[params.id]);
     
-    console.log("update user: "+JSON.stringify(user));
     // Save username to localStorage for access on other pages
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

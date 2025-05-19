@@ -23,13 +23,10 @@ const Home = () => {
 
       useEffect(()=>{
         const user = localStorage.getItem('user');
-        console.log('the user', user);
         if (user) {
           try {
             const parsedUser = JSON.parse(user);
-            console.log('the use Id', parsedUser.id);
             setUserId(parsedUser.id || '');
-            console.log('inside the userid', userId);
           } catch (e) {
             setUserId('');
           }
@@ -41,7 +38,6 @@ const Home = () => {
       
       // youtube channel fetch
       const handleSearch = async(query: string = '')=>{
-        console.log("start fetching channel");
         setChannelList(await getChannelController(query));
       }
       

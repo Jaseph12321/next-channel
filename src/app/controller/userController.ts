@@ -46,7 +46,6 @@ export async function updateUser(user:userData){
     body: JSON.stringify(user)
   });
 
-  console.log(response);
   const data = response.json();
   return data;
 }
