@@ -2,7 +2,7 @@
 import React from 'react';
 import MyChannelCard from '../../components/MyChannelCard';
 import { getUser } from '../../controller/userController';
-import '../../style/globals.scss';
+import '../../globals.scss';
 import { myChannel } from '../../model/model';
 
 const myList = () => {
