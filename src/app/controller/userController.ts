@@ -38,7 +38,7 @@ export async function getUser(user: userParam){
 }
 
 export async function updateUser(user:userData){
-  const response = await fetch(`/api/user/${user.id}`, {
+  const response = await fetch(`/api/user`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

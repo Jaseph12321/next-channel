@@ -1,6 +1,6 @@
 import { db } from "@/src/drizzle/db";
 import { UserTable } from "@/src/drizzle/schema";
-import { eq, sql } from "drizzle-orm";
+import { and, eq, sql } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest){
@@ -27,19 +27,31 @@ export async function GET(req: NextRequest){
     console.log('into the database');
     const {searchParams} = new URL(req.url);
     const id = searchParams.get('id');
+    const name = searchParams.get('name');
     let response = new NextResponse;
 
-    if(!id) 
+    if(!id || !name) 
         return NextResponse.json({error:'Missing query parameters'}, {status: 400});
 
     try {
-        const userResult = await db.query.UserTable.findFirst({
+        let userResult = null;
+
+           if(name === "undefined"){
+            userResult = await db.query.UserTable.findFirst({
         with:{
              channels: true
         },
         where: eq(UserTable.id,id)
-    })
-    
+            })
+        }else{
+           userResult = await db.query.UserTable.findFirst({
+        with:{
+             channels: true
+        },
+        where: and(eq(UserTable.id,id), eq(UserTable.name,name))
+            })
+        }
+  
 
      
     console.log(userResult);
@@ -68,7 +80,7 @@ export async function PUT(req: NextRequest){
     .where(sql`${UserTable.id} = ${body.id}`)
     .returning({id: UserTable.id})
 
-    return result;
+    return NextResponse.json(result);
     } catch (error) {
         response = NextResponse.json(error);
     }
