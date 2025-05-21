@@ -1,10 +1,10 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { getUser, updateUser } from '../../../controller/userController';
-import { userData } from '../../../model/model';
-import '../../profile/profile.scss';
-import { useRouter } from 'next/navigation';
-import { useUser } from '../../../UserContext';
+"use client";
+import { useEffect, useState } from "react";
+import { getUser, updateUser } from "../../../controller/userController";
+import { userData } from "../../../model/model";
+import "../../profile/profile.scss";
+import { useRouter } from "next/navigation";
+import { useUser } from "../../../UserContext";
 
 interface Props {
   id: string;
@@ -13,26 +13,26 @@ interface Props {
 const ProfileClient: React.FC<Props> = ({ id }) => {
   const { logout } = useUser();
   const [user, setUser] = useState<userData>();
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [age, setAge] = useState<number>(0);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const router = useRouter();
 
   const handleLogOut = () => {
     logout();
-    localStorage.removeItem('user');
-    router.push('/');
+    localStorage.removeItem("user");
+    router.push("/");
   };
 
   useEffect(() => {
-    getUser({ id, name: 'undefined' }).then((userData) => {
+    getUser({ id, name: "undefined" }).then((userData) => {
       setUser(userData);
 
-      console.log("user datatatata",userData);
+      console.log("user datatatata", userData);
       if (userData) {
-        setName(userData.name || '');
+        setName(userData.name || "");
         setAge(userData.age || 0);
-        setEmail(userData.email || '');
+        setEmail(userData.email || "");
       }
     });
   }, [id]);

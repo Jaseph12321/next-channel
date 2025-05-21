@@ -1,5 +1,5 @@
-import { use } from 'react';
-import ProfileClient from './ProfileClient';
+import { use } from "react";
+import ProfileClient from "./ProfileClient";
 
 interface PageProps {
   params: Promise<{ id: string }>;

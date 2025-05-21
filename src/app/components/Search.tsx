@@ -1,21 +1,24 @@
-"use client"
-import React, {useState} from 'react';
+"use client";
+import React, { useState } from "react";
+import "./style/search.scss";
 
-type SearchProps= {
-    searchResult: string;
-    placeholder?: string;
-    onSearch: (query:string)=> void;
-}
+type SearchProps = {
+  searchResult: string;
+  placeholder?: string;
+  onSearch: (query: string) => void;
+};
 
+const Search: React.FC<SearchProps> = ({
+  placeholder = "search channel....",
+  onSearch,
+}) => {
+  const [query, setQuery] = useState("");
 
-const Search: React.FC<SearchProps> = ({placeholder='search channel....',onSearch}) =>{
-   const[query,setQuery]= useState('');
-   
-   const handleKeyPress = (e:React.KeyboardEvent<HTMLInputElement>)=>{
-    if('Enter' === e.key) handleSearch();
-   }
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if ("Enter" === e.key) handleSearch();
+  };
 
-   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
 
@@ -23,14 +26,18 @@ const Search: React.FC<SearchProps> = ({placeholder='search channel....',onSearc
     onSearch(query);
   };
 
-    return (
-        <div className='search'>
-            <input type="text" placeholder={placeholder}
-               value={query} onChange={handleChange} 
-               onKeyDown={handleKeyPress}/>
-               <button onClick={handleSearch}>Search</button>
-        </div>
-    )
-}
+  return (
+    <div className="search">
+      <input
+        type="text"
+        placeholder={placeholder}
+        value={query}
+        onChange={handleChange}
+        onKeyDown={handleKeyPress}
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
+  );
+};
 
-export default Search
+export default Search;
