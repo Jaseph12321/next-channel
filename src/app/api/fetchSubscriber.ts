@@ -7,15 +7,33 @@ dotenv.config({ path: ".env.local" });
 const apiKey = process.env.YOUTUBE_API_KEY;
 const channelUrl = process.env.YOUTUBE_CHANNEL_URL;
 
-export async function fetchChannelSubscriber(channelId: string): Promise<channel> {
+export async function fetchChannelSubscriber(
+  channelId: string
+): Promise<channel> {
   try {
-
     let d: channel | undefined;
-    const channelResponse = await fetch(
+    const response = await fetch(
       `${channelUrl}?key=${apiKey}&part=snippet,statistics&maxResults=5&type=channel&id=${channelId}`
     );
 
-    const channelData = await channelResponse.json();
+    if (!response.ok) {
+      throw new Error("No such user");
+    } else if (403 === response.status || 429 === response.status) {
+      const json = await response.json();
+      const reason = json?.error?.errors?.[0]?.reason;
+
+      if (
+        reason === "quotaExceeded" ||
+        reason === "userRateLimitExceeded" ||
+        reason === "dailyLimitExceeded" ||
+        reason === "rateLimitExceeded"
+      ) {
+        console.warn(`Youtube quota hit: ${reason}`);
+        throw new Error(`Youtube API Error: ${reason}`);
+      }
+    }
+
+    const channelData = await response.json();
     if (channelData && channelData.items && channelData.items.length > 0) {
       d = {
         channelId: channelData.items[0].id,
@@ -32,15 +50,6 @@ export async function fetchChannelSubscriber(channelId: string): Promise<channel
     } else {
       throw new Error("Channel data not found");
     }
-
-    //  youtubeData.forEach((item:any, index: number)=>{
-    //    console.log(`Index: ${index+1}`)
-    //    console.log(item.channelId);
-    //    console.log(item.photoUrl);
-    //    console.log(item.channelTitle);
-    //    console.log(item.subscriberCount);
-    //    console.log("===============================");
-    //  })
 
     return d;
   } catch (err) {

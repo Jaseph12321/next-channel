@@ -10,11 +10,6 @@ interface ChannelCardProps {
 
 const channelUrl = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_URL;
 
-// let userId: string | null = null;
-// if (typeof window !== 'undefined') {
-//   userId = localStorage.getItem('user');
-// }
-
 const MyChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
   console.log("channel title: ", channel);
   const handleDeleteChannel = () => {
@@ -24,23 +19,23 @@ const MyChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
 
   return (
     <div className="channel-list">
-    <div className="channel-card">
-      <img src={channel.photoUrl} alt="channel-user" />
-      <div className="channel-title">
-        <a
-          href={`${channelUrl}${channel.channelId}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {channel.title}
-        </a>
+      <div className="channel-card">
+        <img src={channel.photoUrl} alt="channel-user" />
+        <div className="channel-title">
+          <a
+            href={`${channelUrl}${channel.channelId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {channel.title}
+          </a>
+        </div>
+        <div className="channel-subscriber">
+          Subscriber Count: {channel.subscriberCount}
+        </div>
+        {/* <button onClick={handleUpdateChannel}>edit</button> */}
+        <button onClick={handleDeleteChannel}>remove</button>
       </div>
-      <div className="channel-subscriber">
-        Subscriber Count: {channel.subscriberCount}
-      </div>
-      {/* <button onClick={handleUpdateChannel}>edit</button> */}
-      <button onClick={handleDeleteChannel}>remove</button>
-    </div>
     </div>
   );
 };

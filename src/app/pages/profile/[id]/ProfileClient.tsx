@@ -87,8 +87,7 @@ const ProfileClient: React.FC<Props> = ({ id }) => {
         <input
           required
           id="userEmail"
-          pattern="^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,}$"
-          type="text"
+          type=" email"
           placeholder={user?.email}
           onChange={(e) => setEmail(e.target.value)}
         />

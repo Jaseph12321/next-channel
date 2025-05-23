@@ -35,14 +35,15 @@ const RegisterPage: React.FC = ({}) => {
   return (
     <>
       <div className="login-container">
-        <h2>Profile</h2>
+        <h2>Register</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="userId">id:</label>
           <input
             required
             id="userId"
             type="text"
-            placeholder="custom your id with 8 characters"
+            maxLength={10}
+            placeholder="custom your id with 10 characters"
             onChange={(e) => setId(e.target.value)}
           />
           <label htmlFor="username">Name:</label>
@@ -67,8 +68,7 @@ const RegisterPage: React.FC = ({}) => {
           <input
             required
             id="userEmail"
-            pattern="^[\w\.-]+@[\w\.-]+\.\w{2,}$"
-            type="text"
+            type="email"
             placeholder="please type your email"
             onChange={(e) => setEmail(e.target.value)}
           />

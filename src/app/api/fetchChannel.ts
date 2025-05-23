@@ -19,6 +19,19 @@ export async function fetchChannel(query: string): Promise<channel[]> {
 
     if (!response.ok) {
       throw new Error("No such user");
+    }else if(403 === response.status || 429 === response.status){
+      const json = await response.json(); 
+      const reason = json?.error?.errors?.[0]?.reason;
+
+      if(
+        reason ==="quotaExceeded" ||
+        reason === "userRateLimitExceeded" ||
+        reason === "dailyLimitExceeded" ||
+        reason ==="rateLimitExceeded"
+      ){
+        console.warn(`Youtube quota hit: ${reason}`);
+        throw new Error(`Youtube API Error: ${reason}`);
+      }
     }
 
     const data = await response.json();
@@ -62,8 +75,8 @@ export async function fetchChannel(query: string): Promise<channel[]> {
     // console.log("youtube Data: ", youtubeData);
 
     return youtubeData;
-  } catch (err) {
-    console.error("Fetch error:", err);
+  } catch (error) {
+    console.error("Fetch error:", error);
     return [];
   }
 }

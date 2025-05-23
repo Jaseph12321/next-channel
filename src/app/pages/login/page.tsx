@@ -66,8 +66,11 @@ const LoginPage: React.FC = () => {
         {message && <p style={{ marginTop: 16 }}>{message}</p>}
         <div>
           <p>
-            don't&apos;know&apos;what's&apos;your&apos;account?&apos;Click&apos;
-            <Link href="/pages/register">here</Link>&apos;to&apos;register
+            don't know what's your account? Click{" "}
+            <Link href="/pages/register" className="custom-link">
+              here
+            </Link>{" "}
+            to register
           </p>
         </div>
       </div>

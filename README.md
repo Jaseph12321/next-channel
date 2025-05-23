@@ -18,23 +18,47 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 ## Environment Keys
+To create environment data file,
+please create a .env.local file 
+to store key parameters
 
-- Postgresql drizzle database Url
--Youtube channel Url
+Environment parameters for this project:
+- Postgresql drizzle database URL
+- Youtube channel URL
 - Youtube Data V3 API Key
 
+
+
+## Short explanation of your architecture decisions
+The architecture is basically using mvc pattern.
+Backend business service logics are in the api folder. 
+Each webpage is independent.
+## If you implement extra features, mention them.
+The website has three parts
+
+1. Home
+   You can search any channel you want through the 
+   search bar and add to your own MyList. Before 
+   adding channels intoMyList, please login first.
+
+2. MyList
+   All of your preferable channels are in this list.
+
+3. Login
+   Login by enter your id and name.
+   You can register if you don't have one.
+
+## How to run tests (if any)
+To test the channel function,  
+please run the test in the terminal:
+
+``` bash
+npm run test
+```
+
+the test script is in src/channel.test.ts
