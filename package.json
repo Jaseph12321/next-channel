@@ -16,6 +16,7 @@
     "@next/env": "^15.3.2",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.43.1",
+    "luxon": "^3.6.1",
     "next": "15.3.1",
     "node-cron": "^4.0.5",
     "pg": "^8.15.6",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/luxon": "^3.6.2",
     "@types/node": "^20.17.47",
     "@types/pg": "^8.11.14",
     "@types/react": "^19",

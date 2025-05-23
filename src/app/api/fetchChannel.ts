@@ -59,11 +59,9 @@ export async function fetchChannel(query: string): Promise<channel[]> {
     //    console.log("===============================");
     //  })
 
-    console.log("youtube Data: ", youtubeData);
+    // console.log("youtube Data: ", youtubeData);
 
     return youtubeData;
-    // Uncomment and define setChannelList if needed, or remove this line if unnecessary
-    // setChannelList(youtubeData || []);
   } catch (err) {
     console.error("Fetch error:", err);
     return [];

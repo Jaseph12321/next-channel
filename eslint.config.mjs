@@ -19,6 +19,8 @@ const eslintConfig = [
       "coverage/**",
       "public/**",
       "src/legacy/**",
+      "src/cron/**",
+      "src/main.ts",
       "src/app/pages/myList/page.tsx",
       "src/app/page.tsx",
     ],

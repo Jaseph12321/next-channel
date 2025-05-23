@@ -7,7 +7,7 @@ CREATE TABLE "channel" (
 	"userId" varchar(10) NOT NULL,
 	"createdTime" timestamp DEFAULT now() NOT NULL,
 	"updatedTime" timestamp DEFAULT now() NOT NULL,
-	CONSTRAINT "channel_channelId_unique" UNIQUE("channelId")
+	CONSTRAINT "channel_id_channelId_unique" UNIQUE("id","channelId")
 );
 --> statement-breakpoint
 CREATE TABLE "user" (

@@ -1,37 +1,69 @@
 @import "../../globals.scss";
 
+.channel-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
 
-.channel-card{
-  background-color: gray;
-  padding: 1.25rem; 
-  border-radius: 1rem;  
-  transition: transform 0.2s;
-
-  img{
-    border-radius: 4rem;
+  .channel-card {
+    background-color: gray;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-  }
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+    margin: 0.5rem;
 
-  &:hover{
-    transform: translateY(-5px);
-  }
+    img {
+      border-radius: 4rem;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .channel-title{
-   font-size: 1.2rem;
-   font-weight: bold;
-   margin-bottom: 0.5rem;
+    &:hover {
+      transform: translateY(-5px);
+    }
 
-   a{
-    color:#000000;
-   }
+    .channel-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
 
-   :hover{
-    color: $font-color;
-   }
-  }
+      a {
+        color: #000000;
+      }
 
-  .channel-subscriber{
-    font-size: 1rem;
-    color:$font-color;
+      :hover {
+        color: $font-color;
+      }
+    }
+
+    .channel-subscriber {
+      font-size: 1rem;
+      color: $font-color;
+    }
+
+    button {
+      padding: 10px;
+      width: 5rem;
+      font-size: 12px;
+      border-radius: 10px;
+      border: none;
+      background-color: #302e2e;
+      color: $font-color;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-5px);
+        background-color: wheat;
+        color: #000000;
+      }
+    }
   }
 }

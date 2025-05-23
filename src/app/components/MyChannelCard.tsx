@@ -23,6 +23,7 @@ const MyChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
   };
 
   return (
+    <div className="channel-list">
     <div className="channel-card">
       <img src={channel.photoUrl} alt="channel-user" />
       <div className="channel-title">
@@ -39,6 +40,7 @@ const MyChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
       </div>
       {/* <button onClick={handleUpdateChannel}>edit</button> */}
       <button onClick={handleDeleteChannel}>remove</button>
+    </div>
     </div>
   );
 };

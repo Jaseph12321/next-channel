@@ -18,6 +18,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel, userId }) => {
   };
 
   return (
+    <div className="channel-list">
     <div className="channel-card">
       <img src={channel.photoUrl} alt="channel-user" />
       <div className="channel-title">
@@ -33,6 +34,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel, userId }) => {
         Subscriber Count: {channel.subscriberCount}
       </div>
       <button onClick={handleAddChannel}>add to list</button>
+    </div>
     </div>
   );
 };

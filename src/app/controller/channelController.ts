@@ -13,8 +13,20 @@ export async function addChannelController(channel: channel): Promise<string> {
   return "OK";
 }
 
-export async function getChannelController(query: string): Promise<channel[]> {
+export async function fetchChannelController(
+  query: string
+): Promise<channel[]> {
   return fetchChannel(query);
+}
+
+export async function getChannelController(query: string): Promise<channel[]> {
+  let data: channel[] = [];
+  const dbResult = await fetch(`/api/channel?query=${query}`, {
+    method: "GET",
+  });
+
+  data = await dbResult.json();
+  return data;
 }
 
 export async function deleteChannelController(
@@ -27,4 +39,17 @@ export async function deleteChannelController(
   });
 
   return "Delete OK";
+}
+
+export async function updateChannelController(
+  channelList: channel[],
+): Promise<string> {
+  await fetch("/api/channel", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ channelList }),
+  });
+  return "OK";
 }

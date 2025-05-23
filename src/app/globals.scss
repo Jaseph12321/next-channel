@@ -5,20 +5,13 @@ $nav-font-size: large;
 }
 
 body{
-  background-color: #000000;
+  background: linear-gradient(to right,#3e3030,#252525);
 }
 
-main{
+main, p, h3{
   color: $font-color;
 }
 
-p{
-  color: $font-color;
-}
-
-h3{
-  color: $font-color;
-}
 
 
 h2{

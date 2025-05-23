@@ -1,6 +1,6 @@
 {
-  "id": "a3b2f2c2-42e0-4877-aa61-ca4e8727de9c",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "c365644d-022a-4dbd-87a8-bcba3bd1078c",
+  "prevId": "a3b2f2c2-42e0-4877-aa61-ca4e8727de9c",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -77,11 +77,11 @@
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "channel_id_channelId_unique": {
-          "name": "channel_id_channelId_unique",
+        "channel_userId_channelId_unique": {
+          "name": "channel_userId_channelId_unique",
           "nullsNotDistinct": false,
           "columns": [
-            "id",
+            "userId",
             "channelId"
           ]
         }
