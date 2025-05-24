@@ -28,30 +28,40 @@ please create a .env.local file
 to store key parameters
 
 Environment parameters for this project:
-- Postgresql drizzle database URL
-- Youtube channel URL
-- Youtube Data V3 API Key
+- DATABASE_URL=your_postgresql_drizzle_database_url
+- YOUTUBE_API_KEY=your_youtube_data_v3_api_key
+- YOUTUBE_CHANNEL_URL=your_default_youtube_channel_url
 
 
 
-## Short explanation of your architecture decisions
-The architecture is basically using mvc pattern.
-Backend business service logics are in the api folder. 
-Each webpage is independent.
-## If you implement extra features, mention them.
-The website has three parts
 
-1. Home
-   You can search any channel you want through the 
-   search bar and add to your own MyList. Before 
-   adding channels intoMyList, please login first.
+## Architecture Overview
+This project follows a simple MVC-style architecture:
 
-2. MyList
-   All of your preferable channels are in this list.
+Frontend Pages: Located in the app/ directory.
 
-3. Login
-   Login by enter your id and name.
-   You can register if you don't have one.
+Backend Logic: API routes and business logic in pages/api/.
+
+Modular Pages: Each page is self-contained for easy maintainability.
+
+Features
+Home Page
+
+Search for any YouTube channel.
+
+Add channels to your personalized MyList.
+
+Requires login before adding channels.
+
+MyList Page
+
+Displays the list of your saved channels.
+
+Login Page
+
+Log in using your ID and name.
+
+Option to register a new user.
 
 ## How to run tests (if any)
 To test the channel function,  
@@ -61,4 +71,29 @@ please run the test in the terminal:
 npm run test
 ```
 
-the test script is in src/channel.test.ts
+Test scripts are located in src/channel.test.ts
+
+## Deployment
+
+This project is deployment-ready and works best with Verce,the platform create by the Next.js team
+
+1. Fork/clone this repository.
+2. Create a .env.local file in the root directory to store environment keys
+3. Push your code to Github
+4. Login to cercel .com and import your GitHub repo
+5. During setup: 
+Select Next.js as the framework.
+
+Add environment variables.
+
+Click Deploy.
+
+Be aware of using 
+
+``` bash
+npm run lint
+```
+
+to make sure there are no errors
+
+
