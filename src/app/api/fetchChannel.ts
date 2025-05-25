@@ -19,16 +19,16 @@ export async function fetchChannel(query: string): Promise<channel[]> {
 
     if (!response.ok) {
       throw new Error("No such user");
-    }else if(403 === response.status || 429 === response.status){
-      const json = await response.json(); 
+    } else if (403 === response.status || 429 === response.status) {
+      const json = await response.json();
       const reason = json?.error?.errors?.[0]?.reason;
 
-      if(
-        reason ==="quotaExceeded" ||
+      if (
+        reason === "quotaExceeded" ||
         reason === "userRateLimitExceeded" ||
         reason === "dailyLimitExceeded" ||
-        reason ==="rateLimitExceeded"
-      ){
+        reason === "rateLimitExceeded"
+      ) {
         console.warn(`Youtube quota hit: ${reason}`);
         throw new Error(`Youtube API Error: ${reason}`);
       }

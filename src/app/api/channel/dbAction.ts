@@ -26,7 +26,7 @@ export async function getChannelId(action: string) {
 }
 
 export async function insertChannel(body: channel) {
-  db.insert(ChannelTable).values({
+  await db.insert(ChannelTable).values({
     channelId: body.channelId,
     title: body.channelTitle,
     subscriberCount: body.subscriberCount,
@@ -36,7 +36,7 @@ export async function insertChannel(body: channel) {
 }
 
 export async function updateChannel(item: channel) {
-  return db
+  return await db
     .update(ChannelTable)
     .set({
       title: item.channelTitle,
@@ -49,6 +49,7 @@ export async function updateChannel(item: channel) {
 }
 
 export async function deleteChannel(channelId: string, userId: string) {
-  db.delete(ChannelTable).where(sql`${ChannelTable.channelId} = ${channelId} 
+  await db.delete(ChannelTable)
+    .where(sql`${ChannelTable.channelId} = ${channelId} 
   and ${ChannelTable.userId} = ${userId}`);
 }

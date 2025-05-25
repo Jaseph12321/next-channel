@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <h1> youtube channel fetcher</h1>
+        <h1> Youtube Subscriber Watcher</h1>
         <ul className="nav-list">
           <li>
             <Link href="/">Home</Link>

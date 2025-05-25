@@ -14,7 +14,7 @@ export default async function insertUser(body: userData) {
   return result;
 }
 
-export async function getUser(name: string, id: string) {
+export async function getUser(id: string, name: string) {
   if (name === "undefined") {
     return await db.query.UserTable.findFirst({
       with: {

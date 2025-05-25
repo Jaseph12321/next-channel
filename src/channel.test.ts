@@ -10,7 +10,7 @@ describe("environment variable test", () => {
   });
 });
 
-describe("#sum", () => {
+describe("#fetch youtube data", () => {
   it("returns youtube data", async () => {
     const result = await fetchChannel("Jennie");
     expect(result).toContainEqual({

@@ -22,6 +22,7 @@ const LoginPage: React.FC = () => {
 
       try {
         const userData = await getUser(user);
+        console.log("userData: ",userData);
 
         if (!userData || !userData.id || !userData.name) {
           setMessage("Invalid user data. Please try again.");

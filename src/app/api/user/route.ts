@@ -9,7 +9,10 @@ export async function POST(req: NextRequest) {
     await insertUser(body);
     response = NextResponse.json({ status: "ok" });
   } catch (error) {
-    response = NextResponse.json(error);
+    response = NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
   }
   return response;
 }
@@ -28,11 +31,14 @@ export async function GET(req: NextRequest) {
     );
 
   try {
-    const result = getUser(name, id);
+    const result = await getUser(id, name);
 
     response = NextResponse.json(result);
   } catch (error) {
-    response = NextResponse.json(error);
+    response = NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
   }
   return response;
 }
@@ -43,10 +49,13 @@ export async function PUT(req: NextRequest) {
   let response = new NextResponse();
 
   try {
-    const result = updateUser(body);
+    const result = await updateUser(body);
     return NextResponse.json(result);
   } catch (error) {
-    response = NextResponse.json(error);
+    response = NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
   }
   return response;
 }
@@ -58,12 +67,15 @@ export async function DELETE(req: NextRequest) {
   try {
     const id = searchParams.get("id");
     if (id) {
-      const result = deleteUser(id);
+      const result = await deleteUser(id);
       return NextResponse.json(result);
     }
     return "no this user";
   } catch (error) {
-    response = NextResponse.json(error);
+    response = NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
   }
 
   return response;

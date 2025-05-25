@@ -40,7 +40,10 @@ export async function POST(req: NextRequest) {
     await insertChannel(body);
     response = NextResponse.json({ status: "ok" });
   } catch (error) {
-    response = NextResponse.json(error);
+    response =  NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
   }
   return response;
 }
@@ -58,14 +61,17 @@ export async function PUT(req: NextRequest) {
     const result = await Promise.all(
       channelList.map(async (item) => {
         console.log("Updating:", item.channelId);
-        return updateChannel(item);
+        return await updateChannel(item);
       })
     );
 
     console.log("result: ", result);
     response = NextResponse.json({ status: "ok", message: result });
   } catch (error) {
-    response = NextResponse.json(error);
+    response = NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
   }
   return response;
 }
@@ -86,7 +92,10 @@ export async function DELETE(req: NextRequest) {
 
     response = NextResponse.json({ status: "ok" });
   } catch (error) {
-    response = NextResponse.json(error);
+    response = NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
   }
   return response;
 }
