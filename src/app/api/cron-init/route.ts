@@ -1,7 +1,7 @@
 import { initCronJob } from "@/src/cron/job";
 
-initCronJob()
+initCronJob();
 
-export async function GET(){
-    return Response.json({message: 'Cron initialized'})
+export async function GET() {
+  return Response.json({ message: "Cron initialized" });
 }

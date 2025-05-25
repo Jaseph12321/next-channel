@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { channel } from "../../model/model";
-import getAllChannelId, { deleteChannel, getChannelId, insertChannel, updateChannel } from "./dbAction";
+import getAllChannelId, {
+  deleteChannel,
+  getChannelId,
+  insertChannel,
+  updateChannel,
+} from "./dbAction";
 
 export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
@@ -30,9 +35,7 @@ export async function POST(req: NextRequest) {
   let response = new NextResponse();
 
   try {
-    if(!body)
-      throw new Error("body is empty");
-      
+    if (!body) throw new Error("body is empty");
 
     await insertChannel(body);
     response = NextResponse.json({ status: "ok" });

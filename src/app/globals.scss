@@ -1,30 +1,30 @@
 $font-color: #ffffff;
 $nav-font-size: large;
-*{
+* {
   margin: 0;
 }
 
-body{
-  background: linear-gradient(to right,#3e3030,#252525);
+body {
+  background: linear-gradient(to right, #3e3030, #252525);
 }
 
-main, p, h3{
+main,
+p,
+h3 {
   color: $font-color;
 }
 
-
-
-h2{
+h2 {
   margin-top: 30px;
   color: #ffffff;
   font-size: $nav-font-size;
 }
 
-.cards{
-     display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 1.5rem; 
-      padding: 1.5rem;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
 }
 
 // .navbar{
@@ -36,7 +36,7 @@ h2{
 //   ul{
 //     li{
 //       display: inline;
-  
+
 //       a{
 //         color: #CDCDCD;
 //         text-decoration: none;
@@ -49,13 +49,6 @@ h2{
 //     }
 //   }
 // }
-
-
-
-
-
-
-
 
 // .nav-list{
 //   display: flex;
