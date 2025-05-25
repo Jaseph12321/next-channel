@@ -38,30 +38,30 @@ Environment parameters for this project:
 ## Architecture Overview
 This project follows a simple MVC-style architecture:
 
-Frontend Pages: Located in the app/ directory.
+- Frontend Pages: Located in the app/pages directory.
 
-Backend Logic: API routes and business logic in pages/api/.
+- Backend Logic: API routes and business logic in app/api/.
 
-Modular Pages: Each page is self-contained for easy maintainability.
+- Modular Pages: Each page is self-contained for easy maintainability.
 
 Features
-Home Page
+1. Home Page
 
-Search for any YouTube channel.
+   - Search for any YouTube channel.
 
-Add channels to your personalized MyList.
+   - Add channels to your personalized MyList.
 
-Requires login before adding channels.
+   - Requires login before adding channels.
 
-MyList Page
+2. MyList Page
 
-Displays the list of your saved channels.
+   - Displays the list of your saved channels.
 
-Login Page
+3. Login Page
 
-Log in using your ID and name.
+   - Log in using your ID and name.
 
-Option to register a new user.
+   - Option to register a new user.
 
 ## How to run tests (if any)
 To test the channel function,  
@@ -80,7 +80,7 @@ This project is deployment-ready and works best with Verce,the platform create b
 1. Fork/clone this repository.
 2. Create a .env.local file in the root directory to store environment keys
 3. Push your code to Github
-4. Login to cercel .com and import your GitHub repo
+4. Login to vercel .com and import your GitHub repo
 5. During setup: 
 Select Next.js as the framework.
 
